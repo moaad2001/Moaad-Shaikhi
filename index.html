@@ -8,115 +8,148 @@
 <meta property="og:description" content="I help construction companies put AI and technology to work.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://moaadshaikhi.com/">
-<meta name="theme-color" content="#FFB100">
+<meta name="theme-color" content="#0A0A0B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFB100'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='28' text-anchor='middle' fill='%230B0B0C'%3EMS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add("js");</script>
 <style>
-/* Concept: a personal page, not a sales page. One photo, a name, one line, then a short stack of plain links.
-   White page, black ink, amber only on arrows, the Copy button and "Soon" tags. Single light look, so every colour is set explicitly. */
+/* Concept: night-time, controlled, expensive. A cinematic portrait that fades into near-black, a warm gold accent, and plain links that rise into view as the visitor scrolls.
+   Single dark look, so every colour is set explicitly. */
 :root {
-  --bg: #FFFFFF;
-  --ink: #0B0B0C;
-  --muted: #5A5B61;
+  --bg: #0A0A0B;
+  --surface: #141413;
+  --surface-hover: #1B1A18;
+  --line: #2C2924;
+  --ink: #F4F0E8;
+  --muted: #A39C90;
   --amber: #FFB100;
   --amber-press: #E69E00;
-  --amber-tint: #FFF3D1;
-  --on-amber: #0B0B0C;
-  --on-ink: #FFFFFF;
-  --on-ink-muted: #C9CAD0;
-  --focus: #0B0B0C;
+  --on-amber: #0A0A0B;
+  --focus: #FFB100;
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
-  color-scheme: light;
+  color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: var(--font-body); font-size: 16px; line-height: 1.45;
-  padding-block: 20px 32px;
-  padding-left: max(18px, env(safe-area-inset-left, 0px));
-  padding-right: max(18px, env(safe-area-inset-right, 0px));
+  padding-block: 16px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
   min-height: 100vh;
 }
 a { color: inherit; text-decoration: none; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
-.page { width: 100%; max-width: 460px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; }
+.page { width: 100%; max-width: 460px; margin-inline: auto; display: flex; flex-direction: column; gap: 26px; }
 
-.photo { position: relative; overflow: hidden; border-radius: 28px; background: var(--amber); aspect-ratio: 1 / 1; display: grid; place-items: center; }
-.photo .mono { font-family: var(--font-display); font-weight: 800; font-size: 120px; letter-spacing: -.04em; }
-.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%; display: block; }
-
-.intro { display: flex; flex-direction: column; gap: 8px; padding-inline: 2px; }
-h1 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(38px, 11vw, 48px); line-height: 1; letter-spacing: -.03em; }
+/* Hero */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden; border-radius: 28px;
+  min-height: clamp(470px, 74vh, 600px); display: flex; align-items: flex-end;
+  background: radial-gradient(120% 90% at 50% 20%, #2A2218 0%, #0F0E0C 70%);
+}
+.hero .mono { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 120px; letter-spacing: -.04em; color: #3A2F1C; z-index: -1; }
+.hero img {
+  position: absolute; left: 0; top: 0; width: 100%; height: 112%; object-fit: cover; object-position: 38% 8%;
+  z-index: -3; transform: translate3d(0, var(--py, 0px), 0); will-change: transform;
+  filter: brightness(.9) contrast(1.08) saturate(1.05);
+}
+.hero::before { /* edge vignette: turns the pale wall to night while the face stays lit */
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(75% 60% at 38% 34%, rgba(10,10,11,0) 38%, rgba(10,10,11,.78) 100%),
+    linear-gradient(to bottom, rgba(10,10,11,.55) 0%, rgba(10,10,11,0) 22%);
+}
+.hero::after { /* fade into the page */
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, var(--bg) 0%, rgba(10,10,11,.92) 16%, rgba(10,10,11,0) 58%);
+}
+.cap { padding: 0 22px 26px; display: flex; flex-direction: column; gap: 10px; }
+h1 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(42px, 12.5vw, 56px); line-height: .98; letter-spacing: -.035em; }
 h1 i { font-style: normal; color: var(--amber); }
-.line { margin: 0; font-size: 18px; color: var(--muted); font-weight: 500; max-width: 30ch; text-wrap: balance; }
+.line { margin: 0; font-size: 18px; color: var(--ink); opacity: .82; font-weight: 500; max-width: 28ch; text-wrap: balance; }
 
+/* Links */
 .links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .card {
-  display: flex; align-items: center; gap: 14px; width: 100%; min-height: 76px; padding: 14px 14px 14px 20px;
-  border: 2px solid var(--ink); border-radius: 20px; background: var(--bg); color: var(--ink); transition: transform .15s ease;
+  display: flex; align-items: center; gap: 14px; width: 100%; min-height: 78px; padding: 14px 14px 14px 20px;
+  border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
 }
-a.card:hover { transform: translateY(-2px); }
-.card.primary { background: var(--ink); color: var(--on-ink); }
+a.card:hover { transform: translateY(-2px); border-color: var(--amber); background: var(--surface-hover); }
+.card.primary { background: var(--amber); border-color: var(--amber); color: var(--on-amber); }
+a.card.primary:hover { background: var(--amber-press); border-color: var(--amber-press); }
 .text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
 .label { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.15; letter-spacing: -.01em; }
 .meta { font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
-.primary .meta { color: var(--on-ink-muted); }
+.primary .meta { color: #4A3300; }
 .address { font-size: 15px; font-weight: 500; overflow-wrap: anywhere; }
-.go { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--amber); color: var(--on-amber); transition: transform .15s ease, background .15s ease; }
+.go { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--amber); color: var(--on-amber); transition: transform .2s ease, background .2s ease; }
+.primary .go { background: var(--on-amber); color: var(--amber); }
 .go svg { width: 18px; height: 18px; }
-a.card:hover .go { background: var(--amber-press); transform: translate(2px, -2px); }
+a.card:hover .go { transform: translate(2px, -2px); }
 .copy { flex: none; min-width: 76px; min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; cursor: pointer; background: var(--amber); color: var(--on-amber); font-family: var(--font-display); font-weight: 700; font-size: 15px; transition: background .15s ease; }
 .copy:hover { background: var(--amber-press); }
-.tag { flex: none; padding: 7px 13px; border-radius: 999px; background: var(--amber); color: var(--on-amber); font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.tag { flex: none; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--amber); color: var(--amber); font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 
+.legal { margin: 4px 0 0; text-align: center; color: var(--muted); font-size: 13px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-@media (prefers-reduced-motion: reduce) { .card, .go { transition: none; } a.card:hover, a.card:hover .go { transform: none; } }
-@media (min-width: 560px) { body { padding-block: 44px 56px; } }
+
+/* Scroll reveal: items start low and faint, then rise when they enter the screen. Only active when JS runs. */
+.js .rise { opacity: 0; transform: translate3d(0, 34px, 0) scale(.97); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0ms); }
+.js .rise.in { opacity: 1; transform: none; }
+.js .rise.in.card:hover, .js a.rise.in:hover { transition-delay: 0ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .rise { opacity: 1; transform: none; transition: none; }
+  .card, .go { transition: none; } a.card:hover, a.card:hover .go { transform: none; }
+  .hero img { transform: none; }
+}
+@media (min-width: 560px) { body { padding-block: 40px 64px; } }
 </style>
 
 </head><body>
 <main class="page">
-  <div class="photo" role="img" aria-label="Moaad Shaikhi">
+  <header class="hero" role="img" aria-label="Moaad Shaikhi">
     <span class="mono" id="monogram" aria-hidden="true">MS</span>
     <img id="avatar-img" alt="" hidden>
-  </div>
-
-  <header class="intro">
-    <h1>Moaad Shaikhi<i>.</i></h1>
-    <p class="line">I help construction companies put AI and technology to work.</p>
+    <div class="cap">
+      <h1 class="rise" style="--d:150ms">Moaad Shaikhi<i>.</i></h1>
+      <p class="line rise" style="--d:300ms">I help construction companies put AI and technology to work.</p>
+    </div>
   </header>
 
   <ul class="links">
-    <li>
+    <li class="rise">
       <a class="card primary" href="https://www.revoraio.com/" target="_blank" rel="noopener noreferrer">
         <span class="text"><span class="label">Revora</span><span class="meta">My company</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
       </a>
     </li>
-    <li>
+    <li class="rise">
       <a class="card" id="newsletter-link" aria-disabled="true">
         <span class="text"><span class="label">Newsletter</span><span class="meta">How to implement AI in your business</span></span>
         <span class="tag" id="newsletter-tag">Soon</span>
       </a>
     </li>
-    <li>
+    <li class="rise">
       <a class="card" href="https://www.linkedin.com/in/moaad-shaikhi-31b2011bb/" target="_blank" rel="noopener noreferrer">
         <span class="text"><span class="label">LinkedIn</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
       </a>
     </li>
-    <li>
+    <li class="rise">
       <a class="card" id="youtube-link" aria-disabled="true">
         <span class="text"><span class="label">YouTube</span></span>
         <span class="tag" id="youtube-tag">Soon</span>
       </a>
     </li>
-    <li>
+    <li class="rise">
       <div class="card">
         <span class="text"><span class="label">Business enquiries</span><span class="address" id="email-text">moaad@revoraio.com</span></span>
         <button class="copy" id="copy-btn" type="button" aria-label="Copy email address">Copy</button>
@@ -124,6 +157,8 @@ a.card:hover .go { background: var(--amber-press); transform: translate(2px, -2p
       <span class="sr" id="copy-status" role="status" aria-live="polite"></span>
     </li>
   </ul>
+
+  <p class="legal rise">&copy; 2026 Moaad Shaikhi</p>
 </main>
 
 <script>
@@ -135,6 +170,7 @@ var CONFIG = {
 };
 
 (function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var img = document.getElementById("avatar-img");
   if (CONFIG.avatar) {
     img.onload = function () { img.hidden = false; document.getElementById("monogram").hidden = true; };
@@ -151,6 +187,30 @@ var CONFIG = {
   }
   live("newsletter-link", "newsletter-tag", CONFIG.newsletter);
   live("youtube-link", "youtube-tag", CONFIG.youtube);
+
+  /* Scroll reveal */
+  var items = document.querySelectorAll(".rise");
+  function show(el) { el.classList.add("in"); }
+  if (!("IntersectionObserver" in window) || reduce) {
+    items.forEach(show);
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.2, rootMargin: "0px 0px -2% 0px" });
+    items.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { items.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) show(el); }); }, 1500);
+  }
+
+  /* Gentle parallax on the portrait */
+  if (!reduce) {
+    var hero = document.querySelector(".hero"), ticking = false;
+    function tick() {
+      var y = Math.min(window.scrollY, hero.offsetHeight);
+      hero.style.setProperty("--py", (y * 0.12).toFixed(1) + "px");
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }, { passive: true });
+  }
 
   var btn = document.getElementById("copy-btn");
   var status = document.getElementById("copy-status");
