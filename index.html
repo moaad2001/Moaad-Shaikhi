@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moaad Shaikhi | AI in construction</title>
+<meta name="description" content="Quantity surveyor and civil engineer building AI systems for UK contractors. Founder of Revora.">
+<meta property="og:title" content="Moaad Shaikhi | AI in construction">
+<meta property="og:description" content="Quantity surveyor and civil engineer building AI systems for UK contractors. Founder of Revora.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFB100">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFB100'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='30' text-anchor='middle' fill='%230B0B0C'%3EMS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Concept: white page, black ink, hi-vis amber. One amber hero panel carries the name; below it, plain black-outlined link cards whose arrows and Copy button are amber.
+   Deliberately a single light look, so every colour is set explicitly. */
+:root {
+  --bg: #FFFFFF;
+  --ink: #0B0B0C;
+  --muted: #54555B;
+  --amber: #FFB100;
+  --amber-press: #E69E00;
+  --amber-tint: #FFF3D1;
+  --on-amber: #0B0B0C;
+  --on-ink: #FFFFFF;
+  --focus: #0B0B0C;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --radius: 18px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.45;
+  padding-block: 16px 36px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  min-height: 100vh;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+.page { width: 100%; max-width: 480px; margin-inline: auto; display: flex; flex-direction: column; gap: 20px; }
+
+/* Hero */
+.hero {
+  background: var(--amber); color: var(--on-amber);
+  border-radius: 28px; padding: 26px 22px 24px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.avatar {
+  width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex: none;
+  display: grid; place-items: center;
+  background: var(--ink); color: var(--amber);
+  font-family: var(--font-display); font-weight: 800; font-size: 32px; letter-spacing: .02em;
+  box-shadow: 0 0 0 4px var(--amber), 0 0 0 6px var(--ink);
+  margin: 6px 0 4px 6px;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 800; font-optical-sizing: auto;
+  font-size: clamp(44px, 14vw, 60px); line-height: .96; letter-spacing: -.03em; text-wrap: balance;
+}
+.pill {
+  align-self: flex-start; margin: 0; padding: 7px 14px; border-radius: 999px;
+  background: var(--ink); color: var(--amber);
+  font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
+}
+.sub { margin: 0; font-size: 17px; font-weight: 500; max-width: 32ch; }
+
+/* Links */
+.links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.card {
+  display: flex; align-items: center; gap: 14px; width: 100%; min-height: 76px; padding: 14px 14px 14px 18px;
+  border: 2px solid var(--ink); border-radius: var(--radius); background: var(--bg); color: var(--ink);
+  text-decoration: none; transition: transform .15s ease;
+}
+a.card:hover { transform: translateY(-2px); }
+.text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
+.label { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.15; letter-spacing: -.01em; }
+.meta { font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+.go {
+  flex: none; width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--amber); color: var(--on-amber);
+  transition: transform .15s ease, background .15s ease;
+}
+.go svg { width: 18px; height: 18px; }
+a.card:hover .go { background: var(--amber-press); transform: translate(2px, -2px); }
+
+.card.primary { background: var(--ink); color: var(--on-ink); }
+.card.primary .meta { color: #C9CAD0; }
+
+.address { font-size: 15px; font-weight: 500; color: var(--ink); overflow-wrap: anywhere; }
+a.text:hover .label { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+.copy {
+  flex: none; min-width: 72px; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--amber); color: var(--on-amber);
+  font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: .02em;
+  transition: background .15s ease;
+}
+.copy:hover { background: var(--amber-press); }
+
+.card.soon { border-style: dashed; cursor: default; }
+.tag {
+  flex: none; padding: 6px 12px; border-radius: 999px; background: var(--amber-tint); color: var(--ink);
+  font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap;
+}
+
+.foot { margin: 8px 0 0; text-align: center; color: var(--muted); font-size: 13px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) { .card, .go { transition: none; } a.card:hover, a.card:hover .go { transform: none; } }
+@media (min-width: 560px) { body { padding-block: 40px 56px; } .hero { padding: 32px 28px 28px; } }
+</style>
+
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <div class="avatar" role="img" aria-label="Moaad Shaikhi">
+      <span id="monogram" aria-hidden="true">MS</span>
+      <img id="avatar-img" alt="" hidden>
+    </div>
+    <h1>Moaad Shaikhi</h1>
+    <p class="pill">AI in construction</p>
+    <p class="sub">Quantity surveyor and civil engineer. Founder of Revora.</p>
+  </header>
+
+  <ul class="links">
+    <li>
+      <a class="card primary" href="https://www.revoraio.com/" target="_blank" rel="noopener noreferrer">
+        <span class="text"><span class="label">Revora</span><span class="meta">AI systems for UK contractors</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="https://www.linkedin.com/in/moaad-shaikhi-31b2011bb/" target="_blank" rel="noopener noreferrer">
+        <span class="text"><span class="label">LinkedIn</span><span class="meta">Posts on construction operations and AI</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+    </li>
+    <li id="youtube-item" hidden>
+      <a class="card" id="youtube-link" href="#" target="_blank" rel="noopener noreferrer">
+        <span class="text"><span class="label">YouTube</span><span class="meta">Long-form videos</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+    </li>
+    <li>
+      <div class="card">
+        <a class="text" href="mailto:moaad@revoraio.com">
+          <span class="label">Business enquiries</span>
+          <span class="address" id="email-text">moaad@revoraio.com</span>
+        </a>
+        <button class="copy" id="copy-btn" type="button" aria-label="Copy email address">Copy</button>
+      </div>
+      <span class="sr" id="copy-status" role="status" aria-live="polite"></span>
+    </li>
+    <li>
+      <a class="card soon" id="newsletter-link" aria-disabled="true">
+        <span class="text"><span class="label">Newsletter</span><span class="meta" id="newsletter-meta">Plain-English notes on AI and systems for contractors.</span></span>
+        <span class="tag" id="newsletter-tag">Soon</span>
+      </a>
+    </li>
+  </ul>
+
+  <p class="foot">Revora</p>
+</main>
+
+<script>
+/* Set these when ready. Leave a value empty and that item stays hidden or marked "Soon". */
+var CONFIG = {
+  avatar: "",       /* data: URI or image URL of your photo, e.g. "avatar.jpg" */
+  youtube: "",      /* full YouTube channel URL */
+  newsletter: ""    /* full signup page URL (Beehiiv, Substack, Kit, etc.) */
+};
+
+(function () {
+  var img = document.getElementById("avatar-img");
+  if (CONFIG.avatar) {
+    img.onload = function () { img.hidden = false; document.getElementById("monogram").hidden = true; };
+    img.src = CONFIG.avatar;
+  }
+  if (CONFIG.youtube) {
+    document.getElementById("youtube-link").href = CONFIG.youtube;
+    document.getElementById("youtube-item").hidden = false;
+  }
+  if (CONFIG.newsletter) {
+    var n = document.getElementById("newsletter-link");
+    n.href = CONFIG.newsletter; n.target = "_blank"; n.rel = "noopener noreferrer";
+    n.classList.remove("soon"); n.removeAttribute("aria-disabled");
+    document.getElementById("newsletter-tag").textContent = "Join";
+  }
+
+  var btn = document.getElementById("copy-btn");
+  var status = document.getElementById("copy-status");
+  var addr = document.getElementById("email-text");
+  btn.addEventListener("click", function () {
+    function done(msg) {
+      btn.textContent = msg;
+      status.textContent = msg === "Copied" ? "Email address copied" : "Select the address to copy it";
+      setTimeout(function () { btn.textContent = "Copy"; }, 1800);
+    }
+    function fallback() {
+      try { var r = document.createRange(); r.selectNodeContents(addr); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {}
+      done("Select");
+    }
+    try {
+      navigator.clipboard.writeText(addr.textContent.trim()).then(function () { done("Copied"); }, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
