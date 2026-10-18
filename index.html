@@ -1,34 +1,36 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Moaad Shaikhi | AI in construction</title>
-<meta name="description" content="Quantity surveyor and civil engineer building AI systems for UK contractors. Founder of Revora.">
+<meta name="description" content="Quantity surveyor and civil engineer helping UK contractors put AI to work. Founder of Revora.">
 <meta property="og:title" content="Moaad Shaikhi | AI in construction">
-<meta property="og:description" content="Quantity surveyor and civil engineer building AI systems for UK contractors. Founder of Revora.">
+<meta property="og:description" content="Quantity surveyor and civil engineer helping UK contractors put AI to work. Founder of Revora.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://moaadshaikhi.com/">
 <meta name="theme-color" content="#FFB100">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFB100'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='30' text-anchor='middle' fill='%230B0B0C'%3EMS%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFB100'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='28' text-anchor='middle' fill='%230B0B0C'%3EMS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
-/* Concept: white page, black ink, hi-vis amber. One amber hero panel carries the name; below it, plain black-outlined link cards whose arrows and Copy button are amber.
-   Deliberately a single light look, so every colour is set explicitly. */
+/* Concept: an editorial link page in the manner of founder sites like Liam Ottley's and Mike Thurston's: a wordmark, one big headline, a portrait, a row of social cards, then two large feature cards.
+   White page, black ink, amber used only for the highlight, portrait block, arrows and Copy button. Single light look, so every colour is set explicitly. */
 :root {
   --bg: #FFFFFF;
   --ink: #0B0B0C;
-  --muted: #54555B;
+  --muted: #5A5B61;
+  --line: #E6E4DE;
   --amber: #FFB100;
   --amber-press: #E69E00;
   --amber-tint: #FFF3D1;
   --on-amber: #0B0B0C;
   --on-ink: #FFFFFF;
+  --on-ink-muted: #C9CAD0;
   --focus: #0B0B0C;
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --radius: 18px;
+  --radius: 22px;
   color-scheme: light;
 }
 
@@ -40,143 +42,188 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.45;
-  padding-block: 16px 36px;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  line-height: 1.5;
+  padding-block: 20px 28px;
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
   min-height: 100vh;
 }
-a { color: inherit; }
+a { color: inherit; text-decoration: none; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
-.page { width: 100%; max-width: 480px; margin-inline: auto; display: flex; flex-direction: column; gap: 20px; }
+.page { width: 100%; max-width: 1000px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; }
+
+/* Wordmark */
+.top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-block: 4px 2px; }
+.word { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1; }
+.word i { font-style: normal; color: var(--amber); }
+.tagline { font-size: 14px; color: var(--muted); font-weight: 500; text-align: right; }
 
 /* Hero */
-.hero {
-  background: var(--amber); color: var(--on-amber);
-  border-radius: 28px; padding: 26px 22px 24px;
-  display: flex; flex-direction: column; gap: 18px;
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; align-items: center; }
+.portrait {
+  position: relative; overflow: hidden; border-radius: 28px; background: var(--amber);
+  aspect-ratio: 5 / 4; max-width: 100%; display: grid; place-items: center;
 }
-.avatar {
-  width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex: none;
-  display: grid; place-items: center;
-  background: var(--ink); color: var(--amber);
-  font-family: var(--font-display); font-weight: 800; font-size: 32px; letter-spacing: .02em;
-  box-shadow: 0 0 0 4px var(--amber), 0 0 0 6px var(--ink);
-  margin: 6px 0 4px 6px;
+.portrait .mono {
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(96px, 34vw, 180px); letter-spacing: -.04em; line-height: 1; color: var(--ink);
 }
-.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.chip {
+  position: absolute; left: 14px; bottom: 14px; padding: 8px 14px; border-radius: 999px;
+  background: var(--ink); color: var(--on-ink); font-size: 13px; font-weight: 600; letter-spacing: .02em;
+}
 h1 {
   margin: 0; font-family: var(--font-display); font-weight: 800; font-optical-sizing: auto;
-  font-size: clamp(44px, 14vw, 60px); line-height: .96; letter-spacing: -.03em; text-wrap: balance;
+  font-size: clamp(46px, 13.5vw, 88px); line-height: .98; letter-spacing: -.035em; text-wrap: balance;
 }
-.pill {
-  align-self: flex-start; margin: 0; padding: 7px 14px; border-radius: 999px;
-  background: var(--ink); color: var(--amber);
-  font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
-}
-.sub { margin: 0; font-size: 17px; font-weight: 500; max-width: 32ch; }
+h1 .mark { background: var(--amber); padding: 0 .14em; margin-left: -.14em; border-radius: .14em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.sub { margin: 18px 0 0; font-size: 18px; color: var(--muted); max-width: 34ch; font-weight: 500; }
+.sub b { color: var(--ink); font-weight: 600; }
 
-/* Links */
-.links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.card {
-  display: flex; align-items: center; gap: 14px; width: 100%; min-height: 76px; padding: 14px 14px 14px 18px;
-  border: 2px solid var(--ink); border-radius: var(--radius); background: var(--bg); color: var(--ink);
-  text-decoration: none; transition: transform .15s ease;
+/* Social row */
+.row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.social {
+  display: flex; align-items: center; gap: 14px; min-height: 80px; padding: 14px 14px 14px 16px;
+  background: var(--bg); border: 2px solid var(--ink); border-radius: 20px; color: var(--ink);
+  transition: transform .15s ease;
 }
-a.card:hover { transform: translateY(-2px); }
-.text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
-.label { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.15; letter-spacing: -.01em; }
+a.social:hover { transform: translateY(-2px); }
+.ico { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--ink); color: var(--on-ink); }
+.ico svg { width: 22px; height: 22px; fill: currentColor; }
+.txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.label { font-family: var(--font-display); font-weight: 700; font-size: 19px; line-height: 1.15; letter-spacing: -.01em; }
 .meta { font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
 .go {
-  flex: none; width: 44px; height: 44px; border-radius: 50%;
-  display: grid; place-items: center; background: var(--amber); color: var(--on-amber);
-  transition: transform .15s ease, background .15s ease;
+  flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--amber); color: var(--on-amber); transition: transform .15s ease, background .15s ease;
 }
 .go svg { width: 18px; height: 18px; }
-a.card:hover .go { background: var(--amber-press); transform: translate(2px, -2px); }
-
-.card.primary { background: var(--ink); color: var(--on-ink); }
-.card.primary .meta { color: #C9CAD0; }
-
-.address { font-size: 15px; font-weight: 500; color: var(--ink); overflow-wrap: anywhere; }
-a.text:hover .label { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+a.social:hover .go, a.btn:hover .go { background: var(--amber-press); transform: translate(2px, -2px); }
 .copy {
-  flex: none; min-width: 72px; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; cursor: pointer;
-  background: var(--amber); color: var(--on-amber);
-  font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: .02em;
+  flex: none; min-width: 76px; min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--amber); color: var(--on-amber); font-family: var(--font-display); font-weight: 700; font-size: 15px;
   transition: background .15s ease;
 }
 .copy:hover { background: var(--amber-press); }
+.address { font-size: 14.5px; font-weight: 500; color: var(--ink); overflow-wrap: anywhere; }
 
-.card.soon { border-style: dashed; cursor: default; }
-.tag {
-  flex: none; padding: 6px 12px; border-radius: 999px; background: var(--amber-tint); color: var(--ink);
-  font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap;
+/* Feature cards */
+.features { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.feature { border-radius: 28px; padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 14px; min-height: 280px; }
+.feature .kicker { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+.feature h2 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 8vw, 40px); line-height: 1.02; letter-spacing: -.03em; text-wrap: balance; }
+.feature p.body { margin: 0; font-size: 17px; max-width: 34ch; font-weight: 500; }
+.feature .foot { margin-top: auto; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.feature.dark { background: var(--ink); color: var(--on-ink); }
+.feature.dark .kicker { color: var(--amber); }
+.feature.dark p.body { color: var(--on-ink-muted); }
+.feature.amber { background: var(--amber); color: var(--on-amber); }
+.feature.amber p.body { color: #3B2A00; }
+.btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 6px 6px 6px 22px; border-radius: 999px;
+  font-family: var(--font-display); font-weight: 700; font-size: 17px; letter-spacing: -.005em;
 }
+.btn .go { width: 40px; height: 40px; }
+.dark .btn { background: var(--amber); color: var(--on-amber); }
+.dark .btn .go { background: var(--ink); color: var(--amber); }
+.dark a.btn:hover .go { background: #26262A; }
+.amber .btn { background: var(--ink); color: var(--on-ink); }
+.amber .btn .go { background: var(--amber); color: var(--ink); }
+.soon { display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 999px; border: 2px solid var(--ink); font-family: var(--font-display); font-weight: 700; font-size: 16px; }
 
-.foot { margin: 8px 0 0; text-align: center; color: var(--muted); font-size: 13px; }
+.legal { margin: 6px 0 0; text-align: center; color: var(--muted); font-size: 13px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-@media (prefers-reduced-motion: reduce) { .card, .go { transition: none; } a.card:hover, a.card:hover .go { transform: none; } }
-@media (min-width: 560px) { body { padding-block: 40px 56px; } .hero { padding: 32px 28px 28px; } }
+@media (prefers-reduced-motion: reduce) { .social, .go { transition: none; } a.social:hover, a.social:hover .go, a.btn:hover .go { transform: none; } }
+@media (min-width: 640px) {
+  body { padding-block: 36px 40px; }
+  .row { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature { padding: 34px 32px 30px; min-height: 340px; }
+}
+@media (min-width: 820px) {
+  .page { gap: 30px; }
+  .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 44px; }
+  .hero .copy-col { order: 1; }
+  .portrait { order: 2; aspect-ratio: 4 / 5; }
+}
 </style>
 
-</head>
-<body>
+</head><body>
 <main class="page">
-  <header class="hero">
-    <div class="avatar" role="img" aria-label="Moaad Shaikhi">
-      <span id="monogram" aria-hidden="true">MS</span>
-      <img id="avatar-img" alt="" hidden>
-    </div>
-    <h1>Moaad Shaikhi</h1>
-    <p class="pill">AI in construction</p>
-    <p class="sub">Quantity surveyor and civil engineer. Founder of Revora.</p>
-  </header>
+  <div class="top">
+    <span class="word">Moaad Shaikhi<i>.</i></span>
+    <span class="tagline">AI in construction</span>
+  </div>
 
-  <ul class="links">
+  <section class="hero">
+    <div class="copy-col">
+      <h1>AI in construction. <span class="mark">Built by a QS.</span></h1>
+      <p class="sub"><b>Quantity surveyor and civil engineer</b> helping UK contractors put AI to work. Founder of Revora.</p>
+    </div>
+    <div class="portrait" role="img" aria-label="Moaad Shaikhi">
+      <span class="mono" id="monogram" aria-hidden="true">MS</span>
+      <img id="avatar-img" alt="" hidden>
+      <span class="chip">Manchester, UK</span>
+    </div>
+  </section>
+
+  <ul class="row">
     <li>
-      <a class="card primary" href="https://www.revoraio.com/" target="_blank" rel="noopener noreferrer">
-        <span class="text"><span class="label">Revora</span><span class="meta">AI systems for UK contractors</span></span>
-        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-    </li>
-    <li>
-      <a class="card" href="https://www.linkedin.com/in/moaad-shaikhi-31b2011bb/" target="_blank" rel="noopener noreferrer">
-        <span class="text"><span class="label">LinkedIn</span><span class="meta">Posts on construction operations and AI</span></span>
+      <a class="social" href="https://www.linkedin.com/in/moaad-shaikhi-31b2011bb/" target="_blank" rel="noopener noreferrer">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg></span>
+        <span class="txt"><span class="label">LinkedIn</span><span class="meta">Posts on AI and operations</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
       </a>
     </li>
     <li id="youtube-item" hidden>
-      <a class="card" id="youtube-link" href="#" target="_blank" rel="noopener noreferrer">
-        <span class="text"><span class="label">YouTube</span><span class="meta">Long-form videos</span></span>
+      <a class="social" id="youtube-link" href="#" target="_blank" rel="noopener noreferrer">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
+        <span class="txt"><span class="label">YouTube</span><span class="meta">Long-form videos</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
       </a>
     </li>
     <li>
-      <div class="card">
-        <a class="text" href="mailto:moaad@revoraio.com">
-          <span class="label">Business enquiries</span>
-          <span class="address" id="email-text">moaad@revoraio.com</span>
-        </a>
+      <div class="social">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.3-.2 7.7 6.1 7.7-6.1H4.3zM20 7.5l-7.4 5.8a1 1 0 0 1-1.2 0L4 7.5v11a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-11z"/></svg></span>
+        <span class="txt"><span class="label">Business enquiries</span><span class="address" id="email-text">moaad@revoraio.com</span></span>
         <button class="copy" id="copy-btn" type="button" aria-label="Copy email address">Copy</button>
       </div>
       <span class="sr" id="copy-status" role="status" aria-live="polite"></span>
     </li>
-    <li>
-      <a class="card soon" id="newsletter-link" aria-disabled="true">
-        <span class="text"><span class="label">Newsletter</span><span class="meta" id="newsletter-meta">Plain-English notes on AI and systems for contractors.</span></span>
-        <span class="tag" id="newsletter-tag">Soon</span>
-      </a>
-    </li>
   </ul>
 
-  <p class="foot">Revora</p>
+  <section class="features">
+    <article class="feature dark">
+      <p class="kicker">Revora</p>
+      <h2>AI audits and implementation for contractors.</h2>
+      <p class="body">Find where your firm loses time and margin, then fix it with systems that fit how you already work.</p>
+      <div class="foot">
+        <a class="btn" href="https://www.revoraio.com/" target="_blank" rel="noopener noreferrer">Visit Revora
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+      </div>
+    </article>
+
+    <article class="feature amber">
+      <p class="kicker">Newsletter</p>
+      <h2>Plain-English AI for construction.</h2>
+      <p class="body">Practical notes for contractor owners and directors. No hype, no jargon.</p>
+      <div class="foot">
+        <span class="soon" id="newsletter-soon">Launching soon</span>
+        <a class="btn" id="newsletter-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Join free
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <p class="legal">&copy; 2026 Moaad Shaikhi &middot; Revora</p>
 </main>
 
 <script>
-/* Set these when ready. Leave a value empty and that item stays hidden or marked "Soon". */
+/* Set these when ready. Leave a value empty and that item stays hidden or marked "Launching soon". */
 var CONFIG = {
   avatar: "",       /* data: URI or image URL of your photo, e.g. "avatar.jpg" */
   youtube: "",      /* full YouTube channel URL */
@@ -195,9 +242,8 @@ var CONFIG = {
   }
   if (CONFIG.newsletter) {
     var n = document.getElementById("newsletter-link");
-    n.href = CONFIG.newsletter; n.target = "_blank"; n.rel = "noopener noreferrer";
-    n.classList.remove("soon"); n.removeAttribute("aria-disabled");
-    document.getElementById("newsletter-tag").textContent = "Join";
+    n.href = CONFIG.newsletter; n.hidden = false;
+    document.getElementById("newsletter-soon").hidden = true;
   }
 
   var btn = document.getElementById("copy-btn");
@@ -219,6 +265,4 @@ var CONFIG = {
   });
 })();
 </script>
-
-</body>
-</html>
+</body></html>
